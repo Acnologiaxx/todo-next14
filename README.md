@@ -42,26 +42,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The website should encompass the following functionalities: 
 
-Secure User Login and Registration 
+### Secure User Login and Registration 
 - I used supabase as it uses brcrypt and jwt together with supabase's cookie based authentication
 
-Form for adding/editing records 
+### Form for adding/editing records 
 - I used supabase's realtime subscription to update the table in realtime
 
-Table to display records with search filter
+### Table to display records with search filter
 - sort and search filter is available
-Contact Us form 
+
+### Contact Us form 
 - /contact is a form that sends a message to my email
-About Us page 
+
+### About Us page 
 - /about is a page that explains about the project
 
-Security Requirements: 
-Implement secure user registration and login functionalities. Utilize secure hashing algorithms like bcrypt for password storage and avoid storing passwords in plain text. 
+## Security Requirements: 
+### Implement secure user registration and login functionalities. Utilize secure hashing algorithms like bcrypt for password storage and avoid storing passwords in plain text. 
 - I used supabase as it uses brcrypt and jwt
-Secure Data Storage: Explain how you plan to securely store data retrieved from the remote API. Consider using a secure database solution and encrypting sensitive data at rest.
+
+### Secure Data Storage: Explain how you plan to securely store data retrieved from the remote API. Consider using a secure database solution and encrypting sensitive data at rest.
 - I used supabase, a Firebase alternative which uses relational database
-User Access Control: Implement user access control mechanisms (e.g., JWT tokens) to ensure only authorized users can create, read, update, and delete data. 
+### User Access Control: Implement user access control mechanisms (e.g., JWT tokens) to ensure only authorized users can create, read, update, and delete data. 
 - cookie based authentication (wasn't able to finish the delete part)
-Input Validation: Validate all user input on the server-side to prevent vulnerabilities like Cross-Site Scripting (XSS) and SQL Injection. 
+### Input Validation: Validate all user input on the server-side to prevent vulnerabilities like Cross-Site Scripting (XSS) and SQL Injection. 
 - validated registration and login
 
