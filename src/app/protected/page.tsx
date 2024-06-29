@@ -1,9 +1,8 @@
-
 import AuthButton from "@/app/components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { TableSort } from "./Table";
-
+import AddNoteModal from "../components/AddNoteModal";
 
 export default async function ProtectedPage() {
   const supabase = createClient();
@@ -15,8 +14,6 @@ export default async function ProtectedPage() {
   if (!user) {
     return redirect("/");
   }
-
-  const { data: notes } = await supabase.from("notes").select().eq('users_id', user.id)
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -32,24 +29,11 @@ export default async function ProtectedPage() {
           </div>
         </nav>
       </div>
+      <AddNoteModal />
 
       <div className="mx-20">
-        <TableSort notes={notes} />
+        <TableSort />
       </div>
-
-      <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
-        <p>
-          Powered by{" "}
-          <a
-            href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-            target="_blank"
-            className="font-bold hover:underline"
-            rel="noreferrer"
-          >
-            Supabase
-          </a>
-        </p>
-      </footer>
     </div>
   );
 }

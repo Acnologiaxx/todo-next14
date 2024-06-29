@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@mantine/core/styles.css";
 import "./globals.css";
 import { MantineProvider } from "@mantine/core";
+import { ReactQueryClientProvider } from "@/components/QueryClientProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,10 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <ReactQueryClientProvider>
+      <html lang="en">
+        <body>
           <MantineProvider>{children}</MantineProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   );
 }

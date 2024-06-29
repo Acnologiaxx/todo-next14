@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type LoginFormProps = (formData: {
@@ -17,7 +17,7 @@ type LoginFormProps = (formData: {
   password: string;
 }) => Promise<{ success: boolean; message: string }>;
 
-export default function LoginForm({ signIn }: { signIn: LoginFormProps }) {
+export default function LoginForm({ signIn }: Readonly<{ signIn: LoginFormProps }>) {
     const router = useRouter()
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState({
@@ -36,7 +36,7 @@ export default function LoginForm({ signIn }: { signIn: LoginFormProps }) {
     },
   });
 
-  if(isLoading) return <><Loader color="blue" size="xl" type="dots" /></>;
+  if(isLoading) return <Loader color="blue" size="xl" type="dots" />;
 
   return (
     <Paper withBorder shadow="md" p={30} mt={30} radius="md">
