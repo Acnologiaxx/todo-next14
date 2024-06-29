@@ -27,7 +27,7 @@ export default function HeroBullets() {
             <Button radius="xl" size="md" className={classes.control} onClick={() => router.push('/')}>
               Get started
             </Button>
-            <Button variant="default" radius="xl" size="md" className={classes.control} onClick={() => router.push('https://github.com/Acnologiaxx/next-todo')}>
+            <Button variant="default" radius="xl" size="md" className={classes.control} onClick={() => router.push('https://github.com/Acnologiaxx/todo-next14')}>
               Source code
             </Button>
           </Group>

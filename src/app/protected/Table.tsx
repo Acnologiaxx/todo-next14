@@ -248,6 +248,7 @@ export function TableSort() {
       } else {
         console.log("Note updated: ", data);
         close()
+        setEditingId(null);
       }
     }
   };

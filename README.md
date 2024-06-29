@@ -4,6 +4,30 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
+Add .env file with your supabase url and key
+
+```javascript
+# Update these with your Supabase details from your project settings > API
+# https://app.supabase.com/project/_/settings/api
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+```
+
+Next, Install the dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Run the development server
+
 ```bash
 npm run dev
 # or
@@ -16,21 +40,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The website should encompass the following functionalities: 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Secure User Login and Registration 
+- I used supabase as it uses brcrypt and jwt together with supabase's cookie based authentication
 
-## Learn More
+Form for adding/editing records 
+- I used supabase's realtime subscription to update the table in realtime
 
-To learn more about Next.js, take a look at the following resources:
+Table to display records with search filter
+- sort and search filter is available
+Contact Us form 
+- /contact is a form that sends a message to my email
+About Us page 
+- /about is a page that explains about the project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Security Requirements: 
+Implement secure user registration and login functionalities. Utilize secure hashing algorithms like bcrypt for password storage and avoid storing passwords in plain text. 
+- I used supabase as it uses brcrypt and jwt
+Secure Data Storage: Explain how you plan to securely store data retrieved from the remote API. Consider using a secure database solution and encrypting sensitive data at rest.
+- I used supabase, a Firebase alternative which uses relational database
+User Access Control: Implement user access control mechanisms (e.g., JWT tokens) to ensure only authorized users can create, read, update, and delete data. 
+- cookie based authentication (wasn't able to finish the delete part)
+Input Validation: Validate all user input on the server-side to prevent vulnerabilities like Cross-Site Scripting (XSS) and SQL Injection. 
+- validated registration and login
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
